@@ -1,0 +1,33 @@
+
+<span class="d-flex justify-content-center"><h1>Listado de municipios</h1></span>
+
+<div class="container text-center">
+
+  <label for="municipio">Buscar por municipio: </label><input type="text" id="municipio" placeholder="Buscar por municipio" [(ngModel)]="searchMunicipio">
+
+  <table class="table table-bordered table-sm table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Región</th>
+        <th>Código DANE del departamento</th>
+        <th>Departamento</th>
+        <th>Código DANE del municipio</th>
+        <th>Municipio</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let val of municipios; let i = index">
+        <ng-container *ngIf="val.municipio.includes(searchMunicipio); else listado">
+          <th>{{i}}</th>
+          <td>{{val.region}}</td>
+          <td>{{val.c_digo_dane_del_departamento}}</td>
+          <td>{{val.departamento}}</td>
+          <td>{{val.c_digo_dane_del_municipio}}</td>
+          <td>{{val.municipio}}</td>
+        </ng-container>
+        <ng-template #listado></ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>
