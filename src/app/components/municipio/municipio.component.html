@@ -18,7 +18,7 @@
     </thead>
     <tbody class="table-group-divider">
       <tr *ngFor="let val of municipios; let i = index">
-        <ng-container *ngIf="val.municipio.includes(searchMunicipio); else listado">
+        <ng-container *ngIf="val.municipio.includes(searchMunicipio);">
           <th>{{i}}</th>
           <td>{{val.region}}</td>
           <td>{{val.c_digo_dane_del_departamento}}</td>
@@ -26,7 +26,6 @@
           <td>{{val.c_digo_dane_del_municipio}}</td>
           <td>{{val.municipio}}</td>
         </ng-container>
-        <ng-template #listado></ng-template>
       </tr>
     </tbody>
   </table>
